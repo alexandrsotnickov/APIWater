@@ -1,0 +1,12 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<configurationSnapshot xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="urn:schemas-microsoft-com:xml-wcfconfigurationsnapshot">
+  <behaviors />
+  <bindings>
+    <binding digest="System.ServiceModel.Configuration.BasicHttpBindingElement, System.ServiceModel, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089:&lt;?xml version=&quot;1.0&quot; encoding=&quot;utf-16&quot;?&gt;&lt;Data name=&quot;homeportSoapBinding1&quot; /&gt;" bindingType="basicHttpBinding" name="homeportSoapBinding1" />
+    <binding digest="System.ServiceModel.Configuration.CustomBindingElement, System.ServiceModel, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089:&lt;?xml version=&quot;1.0&quot; encoding=&quot;utf-16&quot;?&gt;&lt;Data name=&quot;homeportSoap12Binding1&quot;&gt;&lt;httpTransport /&gt;&lt;textMessageEncoding messageVersion=&quot;Soap12&quot; /&gt;&lt;/Data&gt;" bindingType="customBinding" name="homeportSoap12Binding1" />
+  </bindings>
+  <endpoints>
+    <endpoint normalizedDigest="&lt;?xml version=&quot;1.0&quot; encoding=&quot;utf-16&quot;?&gt;&lt;Data address=&quot;http://10.147.20.4/MARK/ws/homeport&quot; binding=&quot;basicHttpBinding&quot; bindingConfiguration=&quot;homeportSoapBinding1&quot; contract=&quot;markWS.homeportPortType&quot; name=&quot;homeportSoap&quot; /&gt;" digest="&lt;?xml version=&quot;1.0&quot; encoding=&quot;utf-16&quot;?&gt;&lt;Data address=&quot;http://10.147.20.4/MARK/ws/homeport&quot; binding=&quot;basicHttpBinding&quot; bindingConfiguration=&quot;homeportSoapBinding1&quot; contract=&quot;markWS.homeportPortType&quot; name=&quot;homeportSoap&quot; /&gt;" contractName="markWS.homeportPortType" name="homeportSoap" />
+    <endpoint normalizedDigest="&lt;?xml version=&quot;1.0&quot; encoding=&quot;utf-16&quot;?&gt;&lt;Data address=&quot;http://10.147.20.4/MARK/ws/homeport&quot; binding=&quot;customBinding&quot; bindingConfiguration=&quot;homeportSoap12Binding1&quot; contract=&quot;markWS.homeportPortType&quot; name=&quot;homeportSoap12&quot; /&gt;" digest="&lt;?xml version=&quot;1.0&quot; encoding=&quot;utf-16&quot;?&gt;&lt;Data address=&quot;http://10.147.20.4/MARK/ws/homeport&quot; binding=&quot;customBinding&quot; bindingConfiguration=&quot;homeportSoap12Binding1&quot; contract=&quot;markWS.homeportPortType&quot; name=&quot;homeportSoap12&quot; /&gt;" contractName="markWS.homeportPortType" name="homeportSoap12" />
+  </endpoints>
+</configurationSnapshot>

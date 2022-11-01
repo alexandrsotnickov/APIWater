@@ -1,0 +1,19 @@
+﻿<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<unit_pack file_date_time="2022-05-17T09-03-20+08:00">
+  <Document operation_date_time="2022-05-17T09-03-20+08:00">
+    <organisation>
+      <id_info>
+        <LP_info LP_TIN="2272002784" org_name="ООО ПБК Шульгинский" />
+      </id_info>
+      <contacts email="Info@shulginsky.ru" phone_number="+7 (38598) 264-65" />
+      <Address>
+        <location_address country_code="643" text_address="659554, Алтайский край, Советский район, с. Шульгин Лог, ул. Западная, 2" />
+      </Address>
+    </organisation>
+    <pack_content>
+      <pack_code>001106365201270700000076</pack_code>
+      <cis>000106365201270700003247</cis>
+      <cis>000106365201270700003261</cis>
+    </pack_content>
+  </Document>
+</unit_pack>
