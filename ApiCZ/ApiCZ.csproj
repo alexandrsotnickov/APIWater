@@ -361,12 +361,6 @@
     <Compile Include="NewOrderForm.Designer.cs">
       <DependentUpon>NewOrderForm.cs</DependentUpon>
     </Compile>
-    <Compile Include="OrderForm.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="OrderForm.Designer.cs">
-      <DependentUpon>OrderForm.cs</DependentUpon>
-    </Compile>
     <Compile Include="Model.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -374,12 +368,6 @@
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="Properties\SelectCertForm.Designer.cs">
-      <DependentUpon>SelectCertForm.cs</DependentUpon>
-    </Compile>
-    <Compile Include="SelectCertForm.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="SelectCertForm.Designer.cs">
       <DependentUpon>SelectCertForm.cs</DependentUpon>
     </Compile>
     <Compile Include="SettingsForm.cs">
@@ -406,9 +394,6 @@
     <EmbeddedResource Include="NewOrderForm.resx">
       <DependentUpon>NewOrderForm.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="OrderForm.resx">
-      <DependentUpon>OrderForm.cs</DependentUpon>
-    </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
@@ -421,9 +406,6 @@
     </Compile>
     <EmbeddedResource Include="ReportForm.resx">
       <DependentUpon>ReportForm.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="SelectCertForm.resx">
-      <DependentUpon>SelectCertForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="SettingsForm.resx">
       <DependentUpon>SettingsForm.cs</DependentUpon>

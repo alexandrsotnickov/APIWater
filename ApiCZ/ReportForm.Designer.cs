@@ -47,11 +47,8 @@ namespace ApiCZ
             this.putCircButton = new ApiCZ.Controls.RoundButton();
             this.updateSynchButton = new ApiCZ.Controls.RoundButton();
             this.errorLabel = new System.Windows.Forms.Label();
-            this.reportAppTimer = new System.Windows.Forms.Timer(this.components);
-            this.reportAggTimer = new System.Windows.Forms.Timer(this.components);
             this.putCircTimer = new System.Windows.Forms.Timer(this.components);
             this.checkTimer = new System.Windows.Forms.Timer(this.components);
-            this.reportRejTimer = new System.Windows.Forms.Timer(this.components);
             this.tableLayoutPanel1.SuspendLayout();
             this.topPanel.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.hideButton)).BeginInit();
@@ -334,14 +331,6 @@ namespace ApiCZ
             this.errorLabel.TabIndex = 27;
             this.errorLabel.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
-            // reportAppTimer
-            // 
-            this.reportAppTimer.Interval = 30000;
-            // 
-            // reportAggTimer
-            // 
-            this.reportAggTimer.Interval = 30000;
-            // 
             // putCircTimer
             // 
             this.putCircTimer.Interval = 30000;
@@ -377,11 +366,8 @@ namespace ApiCZ
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Label label10;
         private System.Windows.Forms.DateTimePicker dateTimePicker;
-        private System.Windows.Forms.Timer reportAppTimer;
-        private System.Windows.Forms.Timer reportAggTimer;
         private System.Windows.Forms.Timer putCircTimer;
         private System.Windows.Forms.Timer checkTimer;
-        private System.Windows.Forms.Timer reportRejTimer;
         private Controls.RoundButton updateSynchButton;
         private System.Windows.Forms.Panel topPanel;
         private System.Windows.Forms.Label label8;

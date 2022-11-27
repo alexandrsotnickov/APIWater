@@ -13,15 +13,22 @@ namespace ApiCZ
     public partial class MessageWindow : Form
     {
         Point lastPoint;
-        public MessageWindow(string message, bool errorOrMessage)
+        public MessageWindow(string message, int errorOrMessage)
         {
             
             InitializeComponent();
             messageLabel.Text = message;
 
-            if (errorOrMessage == true)
+            if (errorOrMessage == 1)
             {
                 topPanel.BackColor = Color.Red;
+                enterButton.ButtonColor = Color.Gray;
+                enterButton.onHover = Color.DimGray;
+                messageLabel.ForeColor = Color.Gray;
+            }
+            else if (errorOrMessage == 2)
+            {
+                topPanel.BackColor = Color.Yellow;
                 enterButton.ButtonColor = Color.Gray;
                 enterButton.onHover = Color.DimGray;
                 messageLabel.ForeColor = Color.Gray;

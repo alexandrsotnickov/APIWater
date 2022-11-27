@@ -15,17 +15,17 @@ namespace ApiCZ
 
         //Tuple<string, string, bool> repStatusResponse;
         markWS.СтатусВводаВОборот repStatusResponseCirc;
-        API api = new API();
+        WebService1C webs = new WebService1C();
         DataBase dB = new DataBase(Properties.Settings.Default.host, Properties.Settings.Default.port, Properties.Settings.Default.database, Properties.Settings.Default.user, Properties.Settings.Default.password);
         List<string> info = new List<string>();
         List<string> quantity = new List<string>();
-        
+        public int countTickTimer = 0;
         public ReportForm()
         {
  
             InitializeComponent();
-            API.reportResult = new markWS.РезультатОбработкиОтчетаКМ();
-            API.codes.Clear();
+            WebService1C.reportResult = new markWS.РезультатОбработкиОтчетаКМ();
+            WebService1C.codes.Clear();
             checkTimer.Enabled = false;
             nameProdCmBox.Items.Clear();
             info.Clear();
@@ -58,7 +58,7 @@ namespace ApiCZ
                 }
                 catch
                 {
-                    MessageWindow msg = new MessageWindow("Нет связи с БД. Проверьте подключение и повторите попытку.", true);
+                    MessageWindow msg = new MessageWindow("Нет связи с БД. Проверьте подключение и повторите попытку.", 1);
                     msg.Show();
                     GenForm gf = new GenForm();
                     gf.Show();
@@ -85,7 +85,7 @@ namespace ApiCZ
                 }
                 catch
                 {
-                    MessageWindow msg = new MessageWindow("Нет связи с БД. Проверьте подключение и повторите попытку.", true);
+                    MessageWindow msg = new MessageWindow("Нет связи с БД. Проверьте подключение и повторите попытку.", 1);
                     msg.Show();
                     GenForm gf = new GenForm();
                     gf.Show();
@@ -121,7 +121,7 @@ namespace ApiCZ
                 }
                 catch
                 {
-                    MessageWindow msg = new MessageWindow("Нет связи с БД. Проверьте подключение и повторите попытку.", true);
+                    MessageWindow msg = new MessageWindow("Нет связи с БД. Проверьте подключение и повторите попытку.", 1);
                     msg.Show();
                     GenForm gf = new GenForm();
                     gf.Show();
@@ -136,10 +136,10 @@ namespace ApiCZ
 
         private void putCircTimer_Tick(object sender, EventArgs e)
         {
-            
-            if (API.reportResult != null)
+            countTickTimer++;
+            if (WebService1C.reportResult != null)
             {
-                repStatusResponseCirc = api.ReportStatusCirc();
+                repStatusResponseCirc = webs.ReportStatusCirc();
                 if (repStatusResponseCirc.Статус == "[CHECKED_OK] Обработан")
                 {
                     putCircTimer.Enabled = false;
@@ -165,7 +165,7 @@ namespace ApiCZ
                         }
                         catch
                         {
-                            MessageWindow msg = new MessageWindow("Нет связи с БД. Проверьте подключение и повторите попытку.", true);
+                            MessageWindow msg = new MessageWindow("Нет связи с БД. Проверьте подключение и повторите попытку.", 1);
                             msg.Show();
                             GenForm gf = new GenForm();
                             gf.Show();
@@ -173,7 +173,7 @@ namespace ApiCZ
                         }
                     }
 
-                    MessageWindow msg2 = new MessageWindow("Коды успешно введены в оборот! ReportId: " + API.reportResult, false);
+                    MessageWindow msg2 = new MessageWindow("Коды успешно введены в оборот! ReportId: " + WebService1C.reportResult.Items[2], 3);
                     msg2.Show();
                     //ReportForm rf = new ReportForm();
                     //rf.Show();
@@ -191,8 +191,64 @@ namespace ApiCZ
                     //this.Enabled = true;
                     putCircButton.Text = "Ввести коды в оборот";
                     putCircButton.ButtonColor = Color.FromArgb(15, 100, 178);
-                    MessageWindow msg = new MessageWindow("Ошибка отправки отчета:" + repStatusResponseCirc.Комментарий, true);
-                    msg.Show();
+                    int indexItem = nameProdCmBox.SelectedIndex;
+                    dB.UpdateStatusCirc(Properties.Settings.Default.gtin[indexItem], dateTimePicker.Value);
+
+                    if (indexItem != -1)
+                    {
+                        try
+                        {
+                            quantity = dB.GetQuantityFromDB(Properties.Settings.Default.gtin[indexItem], dateTimePicker.Value);
+                            //sQuantityLabel.Text = quantity[0];
+                            circulationLabel.Text = quantity[0];
+                        }
+                        catch
+                        {
+                            MessageWindow msg = new MessageWindow("Нет связи с БД. Проверьте подключение и повторите попытку.", 1);
+                            msg.Show();
+                            GenForm gf = new GenForm();
+                            gf.Show();
+                            this.Close();
+                        }
+                    }
+                    MessageWindow msg2 = new MessageWindow("Ошибка отправки отчета:" + repStatusResponseCirc.Комментарий + "Исправьте все ошибки и произведите повторную отправку отчёта в 1С", 1);
+                    msg2.Show();
+                }
+                else if (countTickTimer == 20)
+                {
+                    putCircTimer.Enabled = false;
+                    putCircButton.Enabled = true;
+                    updateSynchButton.Enabled = true;
+                    backButton.Enabled = true;
+                    closeButton.Enabled = true;
+                    nameProdCmBox.Enabled = true;
+                    dateTimePicker.Enabled = true;
+                    //this.Enabled = true;
+                    putCircButton.Text = "Ввести коды в оборот";
+                    putCircButton.ButtonColor = Color.FromArgb(15, 100, 178);
+                    countTickTimer = 0;
+                    int indexItem = nameProdCmBox.SelectedIndex;
+                    dB.UpdateStatusCirc(Properties.Settings.Default.gtin[indexItem], dateTimePicker.Value);
+
+                    if (indexItem != -1)
+                    {
+                        try
+                        {
+                            quantity = dB.GetQuantityFromDB(Properties.Settings.Default.gtin[indexItem], dateTimePicker.Value);
+                            //sQuantityLabel.Text = quantity[0];
+                            circulationLabel.Text = quantity[0];
+                        }
+                        catch
+                        {
+                            MessageWindow msg = new MessageWindow("Нет связи с БД. Проверьте подключение и повторите попытку.", 1);
+                            msg.Show();
+                            GenForm gf = new GenForm();
+                            gf.Show();
+                            this.Close();
+                        }
+                    }
+                    MessageWindow msg2 = new MessageWindow("Предупреждение! Проверьте статус отчёта в 1С самостоятельно. При необходимости исправьте ошибки" , 2);
+                    msg2.Show();
                 }
                 else if (repStatusResponseCirc == null)
                 {
@@ -207,7 +263,7 @@ namespace ApiCZ
                     dateTimePicker.Enabled = true;
                     putCircButton.Text = "Ввести коды в оборот";
                     putCircButton.ButtonColor = Color.FromArgb(15, 100, 178);
-                    MessageWindow msg = new MessageWindow("Ошибка отправки отчета ", true);
+                    MessageWindow msg = new MessageWindow("Ошибка соединения с web-сервисом. Обратитесь к системному администратору", 1);
                     msg.Show();
                     //ReportForm rf = new ReportForm();
                     //rf.Show();
@@ -227,9 +283,9 @@ namespace ApiCZ
                 dateTimePicker.Enabled = true;
                 putCircButton.Text = "Ввести коды в оборот";
                 putCircButton.ButtonColor = Color.FromArgb(15, 100, 178);
-                MessageWindow msg = new MessageWindow("Ошибка отправки отчета ", true);
+                MessageWindow msg = new MessageWindow("Ошибка соединения с web-сервисом. Обратитесь к системному администратору", 1);
                 msg.Show();
-                API.reportResult = new markWS.РезультатОбработкиОтчетаКМ();
+                WebService1C.reportResult = new markWS.РезультатОбработкиОтчетаКМ();
                 ReportForm rf = new ReportForm();
                 rf.Show();
                 this.Close();
@@ -245,7 +301,7 @@ namespace ApiCZ
                 int indexItem = nameProdCmBox.SelectedIndex;
                 if (indexItem != -1)
                 {
-                    api.ReportCirc(Properties.Settings.Default.gtin[indexItem], dateTimePicker.Value);
+                    webs.ReportCirc(Properties.Settings.Default.gtin[indexItem], dateTimePicker.Value);
                 }
 
                 //this.Enabled = false;
@@ -277,7 +333,7 @@ namespace ApiCZ
                 }
                 catch
                 {
-                    MessageWindow msg = new MessageWindow("Нет связи с БД. Проверьте подключение и повторите попытку.", true);
+                    MessageWindow msg = new MessageWindow("Нет связи с БД. Проверьте подключение и повторите попытку.", 1);
                     msg.Show();
                     GenForm gf = new GenForm();
                     gf.Show();
@@ -301,7 +357,7 @@ namespace ApiCZ
                 }
                 catch
                 {
-                    MessageWindow msg = new MessageWindow("Нет связи с БД. Проверьте подключение и повторите попытку.", true);
+                    MessageWindow msg = new MessageWindow("Нет связи с БД. Проверьте подключение и повторите попытку.", 1);
                     msg.Show();
                     GenForm gf = new GenForm();
                     gf.Show();

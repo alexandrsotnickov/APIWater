@@ -40,11 +40,6 @@ namespace ApiCZ
         }
 
 
-        private void timerToken_Tick(object sender, EventArgs e)
-        {
-            innOrgTextBox.Text= SelectCertForm.token;
-            
-        }
 
         private void enterButton_Click(object sender, EventArgs e)
         {

@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<SavedWcfConfigurationInformation xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" Version="9.1" CheckSum="0NcOHNkiD6GPz/IexUa9uz+YckqleoXASNI4dqoGMFg=">
+<SavedWcfConfigurationInformation xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" Version="9.1" CheckSum="Cv3iwfUHhC7ubYegjfqQr/uHv0IKst/ND5IwVrFX74g=">
   <bindingConfigurations>
     <bindingConfiguration bindingType="basicHttpBinding" name="homeportSoapBinding1">
       <properties>
@@ -263,10 +263,10 @@
     </bindingConfiguration>
   </bindingConfigurations>
   <endpoints>
-    <endpoint name="homeportSoap" contract="markWS.homeportPortType" bindingType="basicHttpBinding" address="http://10.147.20.4/MARK/ws/homeport" bindingConfiguration="homeportSoapBinding1">
+    <endpoint name="homeportSoap" contract="markWS.homeportPortType" bindingType="basicHttpBinding" address="http://192.168.193.1/mark/ws/homeport" bindingConfiguration="homeportSoapBinding1">
       <properties>
         <property path="/address" isComplexType="false" isExplicitlyDefined="true" clrType="System.Uri, System, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
-          <serializedValue>http://10.147.20.4/MARK/ws/homeport</serializedValue>
+          <serializedValue>http://192.168.193.1/mark/ws/homeport</serializedValue>
         </property>
         <property path="/behaviorConfiguration" isComplexType="false" isExplicitlyDefined="false" clrType="System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
           <serializedValue />
@@ -348,10 +348,10 @@
         </property>
       </properties>
     </endpoint>
-    <endpoint name="homeportSoap12" contract="markWS.homeportPortType" bindingType="customBinding" address="http://10.147.20.4/MARK/ws/homeport" bindingConfiguration="homeportSoap12Binding1">
+    <endpoint name="homeportSoap12" contract="markWS.homeportPortType" bindingType="customBinding" address="http://192.168.193.1/mark/ws/homeport" bindingConfiguration="homeportSoap12Binding1">
       <properties>
         <property path="/address" isComplexType="false" isExplicitlyDefined="true" clrType="System.Uri, System, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
-          <serializedValue>http://10.147.20.4/MARK/ws/homeport</serializedValue>
+          <serializedValue>http://192.168.193.1/mark/ws/homeport</serializedValue>
         </property>
         <property path="/behaviorConfiguration" isComplexType="false" isExplicitlyDefined="false" clrType="System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
           <serializedValue />

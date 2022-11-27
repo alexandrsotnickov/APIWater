@@ -19,10 +19,10 @@
     <ServiceContractMappings />
   </ClientOptions>
   <MetadataSources>
-    <MetadataSource Address="http://10.147.20.4/MARK/ws/homeport?wsdl" Protocol="http" SourceId="1" />
+    <MetadataSource Address="http://192.168.193.1/mark/ws/homeport?wsdl" Protocol="http" SourceId="1" />
   </MetadataSources>
   <Metadata>
-    <MetadataFile FileName="homeport1.wsdl" MetadataType="Wsdl" ID="921c9f6a-844d-43c7-932e-c9993071ca63" SourceId="1" SourceUrl="http://10.147.20.4/MARK/ws/homeport?wsdl" />
+    <MetadataFile FileName="homeport1.wsdl" MetadataType="Wsdl" ID="49119156-b959-4bcf-93bd-9494124100cf" SourceId="1" SourceUrl="http://192.168.193.1/mark/ws/homeport?wsdl" />
   </Metadata>
   <Extensions>
     <ExtensionFile FileName="configuration91.svcinfo" Name="configuration91.svcinfo" />

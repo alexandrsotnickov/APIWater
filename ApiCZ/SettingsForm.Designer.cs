@@ -629,7 +629,7 @@
             // 
             // timerToken
             // 
-            this.timerToken.Tick += new System.EventHandler(this.timerToken_Tick);
+            
             // 
             // SettingsForm
             // 

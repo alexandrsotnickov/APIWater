@@ -541,10 +541,10 @@
       <documentation>
         <wsi:Claim xmlns:wsi="http://ws-i.org/schemas/conformanceClaim/" conformsTo="http://ws-i.org/profiles/basic/1.1" />
       </documentation>
-      <soapbind:address location="http://10.147.20.4/MARK/ws/homeport" />
+      <soapbind:address location="http://192.168.193.1/mark/ws/homeport" />
     </port>
     <port name="homeportSoap12" binding="tns:homeportSoap12Binding">
-      <soap12bind:address location="http://10.147.20.4/MARK/ws/homeport" />
+      <soap12bind:address location="http://192.168.193.1/mark/ws/homeport" />
     </port>
   </service>
 </definitions>

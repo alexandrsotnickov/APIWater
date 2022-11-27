@@ -180,13 +180,13 @@ namespace ApiCZ
                     }
                     if (check)
                     {
-                        MessageWindow msg = new MessageWindow("Заказы созданы\r\nЧерез некоторое время они будут загружены в БД", false);
+                        MessageWindow msg = new MessageWindow("Заказы созданы\r\nЧерез некоторое время они будут загружены в БД", 3);
                         msg.Show();
                     }
                     }
-                 catch
+                 catch(Exception ex)
                  {
-                    MessageWindow msg = new MessageWindow("Произошла ошибка заказа кодов. Повторите попытку.", true);
+                    MessageWindow msg = new MessageWindow("Произошла ошибка создания заказа\r\n" + ex.Message, 1);
                     msg.Show();
                  }
                 //OrderForm.endCheck2 = true;
